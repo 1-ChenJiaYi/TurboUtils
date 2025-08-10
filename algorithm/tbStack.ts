@@ -5,26 +5,35 @@ export class TbStack<T> implements tbStack<T> {
   private _tt: number;
   private _qLength: number; 
   private _MAX_LENGTH = Math.floor(1e8); 
-  readonly queue: T[];
+  private _MAX_LENGTH_DEFAULT = Math.floor(1e8 + 7231); 
+  readonly stack: T[];
 
-  constructor() {
+  constructor(ml: number = this._MAX_LENGTH_DEFAULT) {
     this._qLength = 2
     this._tt = 0  
-    this.q = new Array<T>(2) 
-    this.queue = this.q 
+    this._MAX_LENGTH = ml 
+    if(ml !== this._MAX_LENGTH_DEFAULT) {
+      this.q = new Array<T>(ml)
+    }
+    else this.q = new Array<T>(2) 
+    this.stack = this.q 
   }
 
   private resize(l: number) {
-    this._qLength = l 
+    this._qLength = Math.min(l, this._MAX_LENGTH) 
     this.q.push(...new Array<T>(l - this.q.length))
   }
   
   private pushList(...v: T[]) {
-    while(this._qLength < this._tt + v.length) this.resize(this._qLength * 2)
+    while(this._qLength !== this._MAX_LENGTH && 
+      this._qLength < this._tt + v.length) this.resize(this._qLength * 2)
     for(let i = 0; i < v.length; i ++) this.q[this._tt ++] = v[i]
   }
 
   push(...v: T[]) {
+    if(this._MAX_LENGTH < this._tt + v.length) {
+      throw new Error("Stack size exceeds maximum limit")
+    }
     if(v.length > 1) {
       this.pushList(...v)
       return 
