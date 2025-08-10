@@ -1,0 +1,22 @@
+{
+  "name": "turboutils",
+  "version": "1.0.0",
+  "description": "封装高效快速的方法、数据结构",
+  "homepage": "https://github.com/1-ChenJiaYi/TurboUtils#readme",
+  "bugs": {
+    "url": "https://github.com/1-ChenJiaYi/TurboUtils/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1-ChenJiaYi/TurboUtils.git"
+  },
+  "license": "ISC",
+  "author": "code__ccc",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
