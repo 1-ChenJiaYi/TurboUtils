@@ -1,13 +1,10 @@
 export interface tbStack<T> {
-  public q: Array<T>
-  private _qLength: number
-  private _tt: number 
-  private _MAX_LENGTH: number 
-  public isEmpty: () => boolean
-  public pop: () => boolean
-  public push: (value: T) => void
-  public top: () => T | undefined  
-  public size: () => number 
+  queue: T[]
+  isEmpty: () => boolean
+  pop: () => boolean
+  push: (value: T) => void
+  top: () => T | undefined
+  size: () => number
 }
 
 export interface tbQueue<T> {
