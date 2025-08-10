@@ -21,7 +21,7 @@ export class TbStack<T> implements tbStack<T> {
 
   private resize(l: number) {
     this._qLength = Math.min(l, this._MAX_LENGTH) 
-    this.q.push(...new Array<T>(l - this.q.length))
+    this.q.length = this._qLength 
   }
   
   private pushList(...v: T[]) {
