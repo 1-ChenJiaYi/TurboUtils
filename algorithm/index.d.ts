@@ -9,11 +9,12 @@ export interface tbStack<T> {
 }
 
 export interface tbQueue<T> {
-  pop: () => boolean
-  push: (value: T) => boolean
-  q: Array<T>
-  size: number
-  front: T | undefined
+  readonly queue: T[]
   isEmpty: () => boolean
+  pop: () => boolean
+  push: (...v: T[]) => void
+  front: () => T | undefined
+  size: () => number
+  clear: () => void
 }
 
