@@ -17,6 +17,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
+    "example:stack": "npm run build && node dist/examples/stack-example.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
