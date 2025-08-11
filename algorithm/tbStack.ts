@@ -32,7 +32,7 @@ export class TbStack<T> implements tbStack<T> {
 
   push(...v: T[]) {
     if(this._MAX_LENGTH < this._tt + v.length) {
-      throw new Error("Stack size exceeds maximum limit")
+      throw new Error(`Stack size exceeds maximum limit, ${this._MAX_LENGTH}`)
     }
     if(v.length > 1) {
       this.pushList(...v)
